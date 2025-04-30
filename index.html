@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You are Going to Hel! - Bree's Sweet 16 / 30 Sumn</title>
+    <style>
+        :root {
+            --primary: #ff5757;
+            --secondary: #ffbd59;
+            --accent: #70d6ff;
+            --dark: #333;
+            --light: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        
+        body.party-mode {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: headerPulse 8s infinite alternate;
+        }
+        
+        @keyframes headerPulse {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .day {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .day h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .event {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .time {
+            min-width: 80px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .description {
+            flex: 1;
+        }
+        
+        .event-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .event-desc {
+            margin-left: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .main-event {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+            100% { box-shadow: 0 8px 30px rgba(255, 87, 87, 0.5); }
+        }
+        
+        .main-event h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: colorCycle 5s infinite alternate;
+        }
+        
+        @keyframes colorCycle {
+            0% { color: white; }
+            25% { color: var(--accent); }
+            50% { color: #ffd700; }
+            75% { color: #98ff98; }
+            100% { color: white; }
+        }
+        
+        .theme {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .theme h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: var(--primary);
+        }
+        
+        .party-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0.8;
+            top: -10px;
+            z-index: -1;
+        }
+        
+        .party-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .party-mode .party-lights {
+            opacity: 1;
+        }
+        
+        .light {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            filter: blur(30px);
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(0, 100px); }
+            75% { transform: translate(-50px, 50px); }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .countdown { flex-wrap: wrap; }
+            .countdown-item { min-width: 70px; }
+            .main-event h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header id="interactive-header">
+            <h1>You are Going to Hel!</h1>
+            <h2>Bree's Sweet 16 / 30 Sumn</h2>
+            <p>When: May 16 - 18</p>
+        </header>
+        
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+        
+        <div class="day">
+            <h2>Friday (Day 1)</h2>
+            <div class="event">
+                <div class="time">4:30</div>
+                <div class="description">
+                    <div class="event-title">Departure straight to Hel</div>
+                    <div class="event-desc">No turning back now! We're on our way to... you know where.</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">10:30</div>
+                <div class="description">
+                    <div class="event-title">Arrival</div>
+                    <div class="event-desc">Drop off bags - We rest briefly (because Hel waits for no one)</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">11:30</div>
+                <div class="description">
+                    <div class="event-title">Hidden gem exploration</div>
+                    <div class="event-desc">Finding secrets in the dark? Challenge accepted!</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">14:00</div>
+                <div class="description">
+                    <div class="event-title">Lunch somewhere</div>
+                    <div class="event-desc">We'll find food... somewhere. The adventure is in the journey!</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">15:30</div>
+                <div class="description">
+                    <div class="event-title">Check in</div>
+                    <div class="event-desc">Making it official - we're in Hel now!</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">18:00</div>
+                <div class="description">
+                    <div class="event-title">Dinner</div>
+                    <div class="event-desc">Crew 1 to do their chef-ting in there! Gordon Ramsay is shaking.</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">20:00</div>
+                <div class="description">
+                    <div class="event-title">The Games begin!</div>
+                    <div class="event-desc">May the odds be ever in your favor...</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">TBD</div>
+                <div class="description">
+                    <div class="event-title">Lights off - we sleep</div>
+                    <div class="event-desc">Night night (if you can sleep in Hel!)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day">
+            <h2>Saturday (Day 2)</h2>
+            <div class="event">
+                <div class="time">9:30</div>
+                <div class="description">
+                    <div class="event-title">P.E by the fitness gurus</div>
+                    <div class="event-desc">Janet and Aubaine will make sure your body is ready for another day in Hel!</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">10:30</div>
+                <div class="description">
+                    <div class="event-title">We rest</div>
+                    <div class="event-desc">Recovery is key. Even in Hel.</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">11:00</div>
+                <div class="description">
+                    <div class="event-title">Brunch by Crew 2</div>
+                    <div class="event-desc">Fuel up! The day is young and so are we (mostly).</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">14:00</div>
+                <div class="description">
+                    <div class="event-title">Sightseeing 2 places</div>
+                    <div class="event-desc">While playing floor is lava - because regular sightseeing is for tourists!</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-event" id="main-event">
+            <h2>------MAIN EVENT------</h2>
+            <div class="event">
+                <div class="time">20:00</div>
+                <div class="description">
+                    <div class="event-title">Dinner and birthday party</div>
+                    <div class="event-desc"></div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time"></div>
+                <div class="description">
+                    <div class="event-title">Creative arts</div>
+                    <div class="event-desc">We get to get into touch with our creative selves</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time"></div>
+                <div class="description">
+                    <div class="event-title">More games and fun</div>
+                    <div class="event-desc">By the gamesmaster Onami (Best of best 😉)</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time">23:00</div>
+                <div class="description">
+                    <div class="event-title">Cake cutting</div>
+                    <div class="event-desc"></div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time"></div>
+                <div class="description">
+                    <div class="event-title">Vote of Thanks</div>
+                    <div class="event-desc">Shuffle dance request</div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time"></div>
+                <div class="description">
+                    <div class="event-title">Games might continue</div>
+                    <div class="event-desc"></div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="time"></div>
+                <div class="description">
+                    <div class="event-title">Eventually SLEEP</div>
+                    <div class="event-desc">When Hel freezes over... or whenever we pass out.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day">
+            <h2>Sunday (Day 3)</h2>
+            <div class="event">
+                <div class="time">???</div>
+                <div class="description">
+                    <div class="event-title">We leave Hel, thank God!</div>
+                    <div class="event-desc">Back to reality... until next time!</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme">
+            <h2>Theme</h2>
+            <p>No occasion outfit, express yourself outfit, think Artsy, you because you don't need to be anyone else</p>
+            <p>Get ready to be competitive and dismantle your opposition. There might be prizes to be won who knows.</p>
+            <p>Above all bring with you positive energy and positive vibes it's going to be LIT!!!!</p>
+        </div>
+        
+        <div class="footer">
+            -------------CLOCK IT!------------
+        </div>
+    </div>
+    
+    <button class="btn party-btn" id="party-btn">PARTY MODE</button>
+    
+    <div class="party-lights" id="party-lights">
+        <div class="light" style="background-color: #ff5757; top: 10%; left: 10%;"></div>
+        <div class="light" style="background-color: #ffbd59; top: 60%; left: 30%;"></div>
+        <div class="light" style="background-color: #70d6ff; top: 30%; left: 70%;"></div>
+        <div class="light" style="background-color: #ff5757; top: 70%; left: 80%;"></div>
+    </div>
+    
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date('May 16, 2025 16:30:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<h2>IT\'S HAPPENING NOW!</h2>';
+            }
+        }
+        
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        // Party Mode Button
+        const partyBtn = document.getElementById('party-btn');
+        const body = document.body;
+        const mainEvent = document.getElementById('main-event');
+        
+        partyBtn.addEventListener('click', function() {
+            body.classList.toggle('party-mode');
+            if (body.classList.contains('party-mode')) {
+                partyBtn.textContent = 'CALM MODE';
+                createConfetti();
+            } else {
+                partyBtn.textContent = 'PARTY MODE';
+                clearConfetti();
+            }
+        });
+        
+        // Confetti
+        function createConfetti() {
+            const confettiCount = 100;
+            const colors = ['#ff5757', '#ffbd59', '#70d6ff', '#98ff98', '#ffd700'];
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.opacity = Math.random();
+                    confetti.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+                    
+                    body.appendChild(confetti);
+                    
+                    const animationDuration = Math.random() * 3 + 2;
+                    
+                    confetti.animate([
+                        { transform: 'translateY(0) rotate(0)', opacity: 1 },
+                        { transform: 'translateY(100vh) rotate(720deg)', opacity: 0 }
+                    ], {
+                        duration: animationDuration * 1000,
+                        easing: 'cubic-bezier(0, .9, .57, 1)',
+                        iterations: Infinity
+                    });
+                }, i * 50);
+            }
+        }
+        
+        function clearConfetti() {
+            const confetti = document.querySelectorAll('.confetti');
+            confetti.forEach(c => c.remove());
+        }
+        
+        // Interactive Header
+        const header = document.getElementById('interactive-header');
+        
+        header.addEventListener('mousemove', (e) => {
+            const rect = header.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xPercent = x / rect.width;
+            const yPercent = y / rect.height;
+            
+            header.style.background = `radial-gradient(circle at ${xPercent * 100}% ${yPercent * 100}%, var(--secondary), var(--primary))`;
+        });
+        
+        // Animated Main Event
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    mainEvent.classList.add('active');
+                    animateMainEvent();
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(mainEvent);
+        
+        function animateMainEvent() {
+            mainEvent.style.animation = 'pulse 3s infinite alternate';
+            
+            // Create stars
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = '2px';
+                star.style.height = '2px';
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                mainEvent.appendChild(star);
+                
+                star.animate([
+                    { opacity: 0, transform: 'scale(0)' },
+                    { opacity: 1, transform: 'scale(1.5)' },
+                    { opacity: 0, transform: 'scale(0)' }
+                ], {
+                    duration: 2000,
+                    delay: Math.random() * 2000,
+                    iterations: Infinity
+                });
+            }
+        }
+    </script>
+</body>
+</html>

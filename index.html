@@ -202,6 +202,53 @@
             color: var(--dark);
         }
         
+        .packing-list, .gifts-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .packing-list:hover, .gifts-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .packing-list h2, .gifts-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .packing-item, .gift-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+        
+        .packing-item:before, .gift-item:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .item-title {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .item-desc {
+            font-style: italic;
+            color: #666;
+        }
+        
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -479,8 +526,60 @@
             <p>Above all bring with you positive energy and positive vibes it's going to be LIT!!!!</p>
         </div>
         
+        <div class="packing-list">
+            <h2>Your Survival Kit</h2>
+            <div class="packing-item">
+                <span class="item-title">Granny/Grandpa outfit</span>
+                <span class="item-desc">Because nothing says "party in Hel" like dressing as someone who's closer to getting there!</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">P.E. workout clothes</span>
+                <span class="item-desc">Janet and Aubaine will make sure you regret packing these.</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Creative express yourself outfit for dinner</span>
+                <span class="item-desc">Something from your closet, be creative! Your fashion sense can't be worse than your life choices.</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Comfortable walking shoes</span>
+                <span class="item-desc">Because the road to Hel is paved with... well, you'll find out!</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Dancing feet</span>
+                <span class="item-desc">Don't forget to pack these! They're essential for showing off those moves nobody asked to see.</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Your meds</span>
+                <span class="item-desc">You'll need them. Trust us on this one.</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Good mood</span>
+                <span class="item-desc">The most important thing to pack! No room for bad vibes in Hel (ironically).</span>
+            </div>
+            <div class="packing-item">
+                <span class="item-title">Lingerie</span>
+                <span class="item-desc">🤣 Jk! Unless...?</span>
+            </div>
+        </div>
+        
+        <div class="gifts-section">
+            <h2>Gift Ideas (Yes, This Is A Hint)</h2>
+            <div class="gift-item">
+                <span class="item-title">Experiences</span>
+                <span class="item-desc">Because my therapist says I need to make better memories!</span>
+            </div>
+            <div class="gift-item">
+                <span class="item-title">Gift cards</span>
+                <span class="item-desc">When you care enough to let me pick my own present.</span>
+            </div>
+            <div class="gift-item">
+                <span class="item-title">Whatever you want to get me</span>
+                <span class="item-desc">Like a ca... r? castle? cat? The suspense is killing me! 🤣🤣</span>
+            </div>
+        </div>
+        
         <div class="footer">
-                ----CLOCK IT!----
+            ---CLOCK IT!---
         </div>
     </div>
     
